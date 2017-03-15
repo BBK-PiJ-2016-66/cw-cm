@@ -1,0 +1,16 @@
+# Netbeans project
+/.nb-gradle/
+
+# Java build artifacts class files
+*.class
+
+# other generated files
+bin/
+gen/
+build/
+
+# local configuration
+local.properties
+
+# Gradle cache
+/.gradle/
