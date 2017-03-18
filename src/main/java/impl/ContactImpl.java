@@ -19,6 +19,10 @@ public class ContactImpl implements Contact {
         this.notes = notes;
     }
 
+    ContactImpl(int id, String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * {@inheritDoc}
      */

@@ -36,7 +36,21 @@ public class ContactImplTest {
     @Test
     public void testContactImplWithIdAndNameAndNotes() {
         try {
-            ContactImpl contact = new ContactImpl(1, "Pedro", "Some notes");
+            int id = 1;
+            String name = "Pedro";
+            String notes = "Some notes";
+            ContactImpl contact = new ContactImpl(id, name, notes);
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testContactImplWithIdAndName() {
+        try {
+            int id = 1;
+            String name = "Pedro";
+            ContactImpl contact = new ContactImpl(id, name);
         } catch (Exception e) {
             fail(e.getMessage());
         }
