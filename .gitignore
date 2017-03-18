@@ -1,5 +1,6 @@
 # Netbeans project
 /.nb-gradle/
+/nbproject/
 
 # Java build artifacts class files
 *.class
