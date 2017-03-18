@@ -38,7 +38,7 @@ public class ContactImpl implements Contact {
      */
     @Override
     public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.id;
     }
 
     /**
