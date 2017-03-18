@@ -107,4 +107,17 @@ public class ContactImplTest {
         ContactImpl contact = new ContactImpl(id, name, notes);
         assertEquals(notes, contact.getNotes());
     }
+
+    @Test
+    public void testAddNotes() {
+        int id = 1;
+        String name = "Pedro";
+        String notes1 = "Some notes";
+        ContactImpl contact = new ContactImpl(id, name, notes1);
+        assertEquals(notes1, contact.getNotes());
+
+        String notes2 = "More notes";
+        contact.addNotes(notes2);
+        String expected = notes1 + "\n" + notes2;
+    }
 }
