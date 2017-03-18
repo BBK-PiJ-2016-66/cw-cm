@@ -80,4 +80,13 @@ public class ContactImplTest {
             System.out.println(e.getMessage());
         }
     }
+
+    @Test
+    public void testGetId() {
+        int id = 1;
+        String name = "Pedro";
+        String notes = "Some notes";
+        ContactImpl contact = new ContactImpl(id, name, notes);
+        assertEquals(1, contact.getId());
+    }
 }
