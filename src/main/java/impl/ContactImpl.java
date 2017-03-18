@@ -9,9 +9,9 @@ import spec.Contact;
  */
 public class ContactImpl implements Contact {
 
-    private final int id;
-    private final String name;
-    private final String notes;
+    private int id;
+    private String name;
+    private String notes;
 
     ContactImpl(int id, String name, String notes) {
         if (id < 1) {
@@ -62,7 +62,10 @@ public class ContactImpl implements Contact {
      */
     @Override
     public void addNotes(String note) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (!this.notes.equals("")) {
+            this.notes = this.notes + "\n";
+        }
+        this.notes = this.notes + note;
     }
 
 }
