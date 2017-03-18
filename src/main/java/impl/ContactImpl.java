@@ -24,6 +24,10 @@ public class ContactImpl implements Contact {
     }
 
     ContactImpl(int id, String name) {
+        if (id < 1) {
+            throw new IllegalArgumentException("Argument id must greater than zero.");
+        }
+
         this.id = id;
         this.name = name;
         this.notes = "";
