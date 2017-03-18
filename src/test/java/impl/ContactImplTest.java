@@ -32,4 +32,13 @@ public class ContactImplTest {
     @After
     public void tearDown() {
     }
+
+    @Test
+    public void testContactImplWithIdAndNameAndNotes() {
+        try {
+            ContactImpl contact = new ContactImpl(1, "Pedro");
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
 }
