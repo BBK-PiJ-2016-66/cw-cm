@@ -98,4 +98,13 @@ public class ContactImplTest {
         ContactImpl contact = new ContactImpl(id, name, notes);
         assertEquals(name, contact.getName());
     }
+
+    @Test
+    public void testGetNotes() {
+        int id = 1;
+        String name = "Pedro";
+        String notes = "Some notes";
+        ContactImpl contact = new ContactImpl(id, name, notes);
+        assertEquals(notes, contact.getNotes());
+    }
 }
