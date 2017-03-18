@@ -36,7 +36,7 @@ public class ContactImplTest {
     @Test
     public void testContactImplWithIdAndNameAndNotes() {
         try {
-            ContactImpl contact = new ContactImpl(1, "Pedro");
+            ContactImpl contact = new ContactImpl(1, "Pedro", "Some notes");
         } catch (Exception e) {
             fail(e.getMessage());
         }

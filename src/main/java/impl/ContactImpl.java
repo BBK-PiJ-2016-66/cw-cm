@@ -9,8 +9,14 @@ import spec.Contact;
  */
 public class ContactImpl implements Contact {
 
-    ContactImpl(int id, String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private final int id;
+    private final String name;
+    private final String notes;
+
+    ContactImpl(int id, String name, String notes) {
+        this.id = id;
+        this.name = name;
+        this.notes = notes;
     }
 
     /**
