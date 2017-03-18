@@ -55,4 +55,17 @@ public class ContactImplTest {
             fail(e.getMessage());
         }
     }
+
+    @Test
+    public void testContactImplWithIdAndNameAndNotesRaisesIllegalArgumentExceptionOnInvalidId() {
+        try {
+            int id = 0;
+            String name = "Pedro";
+            String notes = "Some notes";
+            ContactImpl contact = new ContactImpl(id, name, notes);
+            fail("Missing exception!");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
