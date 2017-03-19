@@ -53,7 +53,7 @@ public class MeetingImplTest {
     @Test
     public void testMethodWithIdAndDateAndContactsRaisesExceptionOnInvalidId() {
         try {
-            int id = 1;
+            int id = 0;
             Calendar date = Calendar.getInstance();
             Set<Contact> contacts = new HashSet<>();
             Meeting instance = new MeetingImplMock(id, date, contacts);
@@ -72,6 +72,10 @@ public class MeetingImplTest {
         private Set<Contact> contacts;
 
         private MeetingImplMock(int id, Calendar date, Set<Contact> contacts) {
+            if (id < 1) {
+                throw new IllegalArgumentException("Argument id must greater than zero.");
+            }
+
             this.id = id;
             this.date = date;
             this.contacts = contacts;
