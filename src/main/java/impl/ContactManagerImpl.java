@@ -143,7 +143,7 @@ public class ContactManagerImpl implements ContactManager {
             }
         }
         return contacts;
-    }
+     }
 
     /**
      * {@inheritDoc}
