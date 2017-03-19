@@ -44,7 +44,7 @@ public class MeetingImplTest {
             int id = 1;
             Calendar date = Calendar.getInstance();
             Set<Contact> contacts = new HashSet<>();
-            Meeting instance = new MeetingImplMock(id, date, contacts);            
+            Meeting instance = new MeetingImplMock(id, date, contacts);
         } catch (Exception e) {
             fail(e.getMessage());
         }
@@ -55,8 +55,14 @@ public class MeetingImplTest {
      */
     public class MeetingImplMock extends MeetingImpl {
 
+        private int id;
+        private Calendar date;
+        private Set<Contact> contacts;
+
         private MeetingImplMock(int id, Calendar date, Set<Contact> contacts) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            this.id = id;
+            this.date = date;
+            this.contacts = contacts;
         }
     }
 
