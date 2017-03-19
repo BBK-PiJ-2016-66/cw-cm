@@ -119,7 +119,16 @@ public class ContactManagerImpl implements ContactManager {
      */
     @Override
     public Set<Contact> getContacts(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Set<Contact> contacts = new HashSet();
+        Iterator iterator = this.contacts.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry entry = (Map.Entry) iterator.next();
+            Contact contact = (Contact) entry.getValue();
+            if (contact.getName().equals(name)) {
+                contacts.add(contact);
+            }
+        }
+        return contacts;
     }
 
     /**
