@@ -3,6 +3,7 @@ package impl;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,6 +12,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import spec.Contact;
 import spec.ContactManager;
+import spec.PastMeeting;
 
 /**
  * ContactManagerImplTest
@@ -147,6 +149,22 @@ public class ContactManagerImplTest {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    @Test
+    public void testGetPastMeeting() throws InterruptedException {
+        ContactManager manager = new ContactManagerImpl();
+        manager.addNewContact("Pedro", "Some notes");
+        Set<Contact> contacts = manager.getContacts("Pedro");
+
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.SECOND, 1);
+
+        int id = manager.addFutureMeeting(contacts, date);
+        Thread.sleep(2000);
+        
+        PastMeeting meeting = manager.getPastMeeting(id);
+        assertEquals(id, meeting.getId());
     }
 
 }

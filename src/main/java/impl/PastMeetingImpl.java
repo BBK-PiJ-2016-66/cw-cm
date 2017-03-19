@@ -3,14 +3,14 @@ package impl;
 import java.util.Calendar;
 import java.util.Set;
 import spec.Contact;
-import spec.FutureMeeting;
+import spec.PastMeeting;
 
 /**
  * {@inheritDoc}
  *
  * @author Pedro Ferreira <pbf@frameweb.net>
  */
-public class PastMeetingImpl extends MeetingImpl implements FutureMeeting {
+public class PastMeetingImpl extends MeetingImpl implements PastMeeting {
 
     PastMeetingImpl(int id, Calendar date, Set<Contact> contacts) {
         if (id < 1) {
@@ -24,6 +24,11 @@ public class PastMeetingImpl extends MeetingImpl implements FutureMeeting {
         this.id = id;
         this.date = date;
         this.contacts = contacts;
+    }
+
+    @Override
+    public String getNotes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
