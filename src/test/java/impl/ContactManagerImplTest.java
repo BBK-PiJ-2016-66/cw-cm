@@ -72,6 +72,17 @@ public class ContactManagerImplTest {
     }
 
     @Test
+    public void testAddNewContactRaisesIllegalArgumentExceptionOnEmptyNotes() {
+        try {
+            ContactManager manager = new ContactManagerImpl();
+            manager.addNewContact("Pedro", "");
+            fail("Missing exception!");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
     public void testGetContactsByName() {
         ContactManager manager = new ContactManagerImpl();
 
