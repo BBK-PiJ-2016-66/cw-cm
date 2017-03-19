@@ -112,6 +112,10 @@ public class ContactManagerImpl implements ContactManager {
             throw new IllegalArgumentException("Argument name can't be empty.");
         }
 
+        if (notes.isEmpty()) {
+            throw new IllegalArgumentException("Argument notes can't be empty.");
+        }
+
         this.lastContactId++;
         Contact contact = new ContactImpl(this.lastContactId, name, notes);
         this.contacts.put(this.lastContactId, contact);
