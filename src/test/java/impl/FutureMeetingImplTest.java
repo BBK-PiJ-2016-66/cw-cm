@@ -49,4 +49,17 @@ public class FutureMeetingImplTest {
         }
     }
 
+    @Test
+    public void testFutureMethodWithIdAndDateAndContactsRaisesExceptionOnInvalidId() {
+        try {
+            int id = 0;
+            Calendar date = Calendar.getInstance();
+            Set<Contact> contacts = new HashSet<>();
+            Meeting meeting = new FutureMeetingImpl(id, date, contacts);
+            fail("Missing exception!");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
