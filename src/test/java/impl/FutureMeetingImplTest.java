@@ -13,8 +13,9 @@ import spec.Contact;
 import spec.Meeting;
 
 /**
+ * FutureMeetingImplTest
  *
- * @author pedro
+ * @author Pedro Ferreira <pbf@frameweb.net>
  */
 public class FutureMeetingImplTest {
 
