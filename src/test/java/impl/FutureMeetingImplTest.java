@@ -43,6 +43,8 @@ public class FutureMeetingImplTest {
             int id = 1;
             Calendar date = Calendar.getInstance();
             Set<Contact> contacts = new HashSet<>();
+            Contact contac = new ContactImpl(1, "Pedro");
+            contacts.add(contac);
             Meeting meeting = new FutureMeetingImpl(id, date, contacts);
         } catch (Exception e) {
             fail(e.getMessage());
