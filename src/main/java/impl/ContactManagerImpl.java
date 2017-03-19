@@ -108,6 +108,10 @@ public class ContactManagerImpl implements ContactManager {
      */
     @Override
     public int addNewContact(String name, String notes) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("Argument name can't be empty.");
+        }
+
         this.lastContactId++;
         Contact contact = new ContactImpl(this.lastContactId, name, notes);
         this.contacts.put(this.lastContactId, contact);
@@ -143,7 +147,7 @@ public class ContactManagerImpl implements ContactManager {
             }
         }
         return contacts;
-     }
+    }
 
     /**
      * {@inheritDoc}
