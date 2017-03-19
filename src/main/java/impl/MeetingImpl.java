@@ -37,7 +37,7 @@ abstract public class MeetingImpl implements Meeting {
      */
     @Override
     public Set<Contact> getContacts() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.contacts;
     }
     
 }
