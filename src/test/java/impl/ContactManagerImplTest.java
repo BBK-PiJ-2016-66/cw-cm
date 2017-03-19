@@ -7,7 +7,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import spec.Contact;
 import spec.ContactManager;
 
 /**
@@ -51,12 +50,13 @@ public class ContactManagerImplTest {
         String name = "Pedro";
         String notes = "Some notes";
         int id = manager.addNewContact(name, notes);
-        Set<Contact> contacts = manager.getContacts(name);
-        assertEquals(1, contacts.size());
-        Contact contact = contacts.iterator().next();
-        assertEquals(id, contact.getId());
-        assertEquals(name, contact.getName());
-        assertEquals(notes, contact.getNotes());
+        assertTrue(id > 0);
+
+        String name2 = "Pedro";
+        String notes2 = "Some notes";
+        int id2 = manager.addNewContact(name2, notes2);
+        assertTrue(id2 > 0);
+        assertTrue(id2 > id);
     }
 
 }

@@ -1,7 +1,9 @@
 package impl;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import spec.Contact;
 import spec.ContactManager;
@@ -15,6 +17,17 @@ import spec.PastMeeting;
  * @author Pedro Ferreira <pbf@frameweb.net>
  */
 public class ContactManagerImpl implements ContactManager {
+
+    private int lastContactId;
+    private Map<Integer, Contact> contacts;
+
+    /**
+     * Constructor
+     */
+    ContactManagerImpl() {
+        this.lastContactId = 0;
+        this.contacts = new HashMap();
+    }
 
     /**
      * {@inheritDoc}
@@ -93,7 +106,10 @@ public class ContactManagerImpl implements ContactManager {
      */
     @Override
     public int addNewContact(String name, String notes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.lastContactId++;
+        Contact contact = new ContactImpl(this.lastContactId, name, notes);
+        this.contacts.put(this.lastContactId, contact);
+        return contact.getId();
     }
 
     /**
@@ -119,5 +135,5 @@ public class ContactManagerImpl implements ContactManager {
     public void flush() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
