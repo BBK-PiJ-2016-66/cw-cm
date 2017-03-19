@@ -17,6 +17,10 @@ public class PastMeetingImpl extends MeetingImpl implements FutureMeeting {
             throw new IllegalArgumentException("Argument id must greater than zero.");
         }
 
+        if (contacts.isEmpty()) {
+            throw new IllegalArgumentException("Argument contacts can't be empty.");
+        }
+
         this.id = id;
         this.date = date;
         this.contacts = contacts;
