@@ -50,11 +50,23 @@ public class MeetingImplTest {
         }
     }
 
+    @Test
+    public void testMethodWithIdAndDateAndContactsRaisesExceptionOnInvalidId() {
+        try {
+            int id = 1;
+            Calendar date = Calendar.getInstance();
+            Set<Contact> contacts = new HashSet<>();
+            Meeting instance = new MeetingImplMock(id, date, contacts);
+            fail("Missing exception!");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     /**
      * Mock for abstract class MethodImpl
      */
     public class MeetingImplMock extends MeetingImpl {
-
         private int id;
         private Calendar date;
         private Set<Contact> contacts;
