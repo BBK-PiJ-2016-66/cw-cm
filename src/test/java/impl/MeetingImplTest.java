@@ -69,7 +69,16 @@ public class MeetingImplTest {
         Calendar date = Calendar.getInstance();
         Set<Contact> contacts = new HashSet<>();
         Meeting meeting = new MeetingImplMock(id, date, contacts);
-        assertEquals(1, meeting.getId());
+        assertEquals(id, meeting.getId());
+    }
+
+    @Test
+    public void testGetDate() {
+        int id = 1;
+        Calendar date = Calendar.getInstance();
+        Set<Contact> contacts = new HashSet<>();
+        Meeting meeting = new MeetingImplMock(id, date, contacts);
+        assertEquals(date, meeting.getDate());
     }
 
     /**
