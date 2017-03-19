@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import spec.Contact;
 import spec.ContactManager;
 
 /**
@@ -58,5 +59,18 @@ public class ContactManagerImplTest {
         assertTrue(id2 > 0);
         assertTrue(id2 > id);
     }
+
+    @Test
+    public void testGetContactsByName() {
+        ContactManager manager = new ContactManagerImpl();
+        
+        String name = "Pedro";
+        String notes = "Some notes";
+        int id = manager.addNewContact(name, notes);
+        Set<Contact> contacts = manager.getContacts(name);
+        assertTrue(contacts.size() == 1);
+        Contact contact = contacts.iterator().next();
+        assertEquals(id, contact.getId());
+     }
 
 }
