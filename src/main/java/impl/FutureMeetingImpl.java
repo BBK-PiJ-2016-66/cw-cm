@@ -13,7 +13,9 @@ import spec.FutureMeeting;
 public class FutureMeetingImpl extends MeetingImpl implements FutureMeeting {
 
     FutureMeetingImpl(int id, Calendar date, Set<Contact> contacts) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.id = id;
+        this.date = date;
+        this.contacts = contacts;
     }
 
 }
