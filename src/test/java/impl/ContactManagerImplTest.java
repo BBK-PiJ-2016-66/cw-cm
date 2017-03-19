@@ -73,4 +73,19 @@ public class ContactManagerImplTest {
         assertEquals(id, contact.getId());
      }
 
+    @Test
+    public void testGetContactsByIds() {
+        ContactManager manager = new ContactManagerImpl();
+        
+        String name = "Pedro";
+        String notes = "Some notes";
+        
+        for (int i = 1; i < 10; i++) {
+            manager.addNewContact(name + i, notes + i);
+        }
+        int[] ids = {1, 3, 5};
+        Set<Contact> contacts = manager.getContacts(ids);
+        assertTrue(contacts.size() == ids.length);
+     }
+
 }
