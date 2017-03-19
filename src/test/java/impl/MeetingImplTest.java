@@ -65,7 +65,7 @@ public class MeetingImplTest {
 
     @Test
     public void testGetId() {
-        int id = 0;
+        int id = 1;
         Calendar date = Calendar.getInstance();
         Set<Contact> contacts = new HashSet<>();
         Meeting meeting = new MeetingImplMock(id, date, contacts);
@@ -76,10 +76,6 @@ public class MeetingImplTest {
      * Mock for abstract class MethodImpl
      */
     public class MeetingImplMock extends MeetingImpl {
-        private int id;
-        private Calendar date;
-        private Set<Contact> contacts;
-
         private MeetingImplMock(int id, Calendar date, Set<Contact> contacts) {
             if (id < 1) {
                 throw new IllegalArgumentException("Argument id must greater than zero.");

@@ -12,12 +12,16 @@ import spec.Meeting;
  */
 abstract public class MeetingImpl implements Meeting {
 
+    protected int id;
+    protected Calendar date;
+    protected Set<Contact> contacts;
+
     /**
      * {@inheritDoc}
      */
     @Override
     public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.id;
     }
 
     /**
