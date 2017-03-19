@@ -62,4 +62,17 @@ public class FutureMeetingImplTest {
         }
     }
 
+    @Test
+    public void testFutureMethodWithIdAndDateAndContactsRaisesExceptionOnEmptyContacts() {
+        try {
+            int id = 1;
+            Calendar date = Calendar.getInstance();
+            Set<Contact> contacts = new HashSet<>();
+            Meeting meeting = new FutureMeetingImpl(id, date, contacts);
+            fail("Missing exception!");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
