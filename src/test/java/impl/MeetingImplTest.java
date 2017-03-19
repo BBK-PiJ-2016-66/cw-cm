@@ -81,6 +81,15 @@ public class MeetingImplTest {
         assertEquals(date, meeting.getDate());
     }
 
+    @Test
+    public void testGetContacts() {
+        int id = 1;
+        Calendar date = Calendar.getInstance();
+        Set<Contact> contacts = new HashSet<>();
+        Meeting meeting = new MeetingImplMock(id, date, contacts);
+        assertEquals(contacts, meeting.getContacts());
+    }
+
     /**
      * Mock for abstract class MethodImpl
      */
