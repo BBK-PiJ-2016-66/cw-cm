@@ -132,4 +132,21 @@ public class ContactManagerImplTest {
         assertTrue(id2 > id);
     }
 
+    @Test
+    public void testAddFutureMeetingRaisesIllegalArgumentExceptionOnPastDate() {
+        try {
+            ContactManager manager = new ContactManagerImpl();
+            int contactId = manager.addNewContact("Pedro", "Some notes");
+            Set<Contact> contacts = manager.getContacts("Pedro");
+
+            Calendar date = Calendar.getInstance();
+            date.add(Calendar.DAY_OF_YEAR, -1);
+
+            manager.addFutureMeeting(contacts, date);
+            fail("Missing exception!");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
