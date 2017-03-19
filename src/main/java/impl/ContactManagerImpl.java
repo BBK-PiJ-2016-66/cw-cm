@@ -40,6 +40,11 @@ public class ContactManagerImpl implements ContactManager {
      */
     @Override
     public int addFutureMeeting(Set<Contact> contacts, Calendar date) {
+        Calendar now = Calendar.getInstance();
+        if (date.getTime().before(now.getTime())) {
+            throw new IllegalArgumentException("Argument date can't be before then now.");
+        }
+
         this.lastMeetingId++;
         FutureMeeting meeting = new FutureMeetingImpl(this.lastMeetingId, date, contacts);
         return meeting.getId();
