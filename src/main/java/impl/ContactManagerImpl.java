@@ -22,6 +22,8 @@ public class ContactManagerImpl implements ContactManager {
 
     private int lastContactId;
     private Map<Integer, Contact> contacts;
+    private int lastMeetingId;
+    private Map<Integer, Meeting> meetings;
 
     /**
      * Constructor
@@ -29,6 +31,8 @@ public class ContactManagerImpl implements ContactManager {
     ContactManagerImpl() {
         this.lastContactId = 0;
         this.contacts = new HashMap();
+        this.lastContactId = 0;
+        this.meetings = new HashMap();
     }
 
     /**
@@ -36,7 +40,9 @@ public class ContactManagerImpl implements ContactManager {
      */
     @Override
     public int addFutureMeeting(Set<Contact> contacts, Calendar date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.lastMeetingId++;
+        FutureMeeting meeting = new FutureMeetingImpl(this.lastMeetingId, date, contacts);
+        return meeting.getId();
     }
 
     /**
