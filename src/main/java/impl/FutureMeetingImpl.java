@@ -13,6 +13,10 @@ import spec.FutureMeeting;
 public class FutureMeetingImpl extends MeetingImpl implements FutureMeeting {
 
     FutureMeetingImpl(int id, Calendar date, Set<Contact> contacts) {
+        if (id < 1) {
+            throw new IllegalArgumentException("Argument id must greater than zero.");
+        }
+
         this.id = id;
         this.date = date;
         this.contacts = contacts;
