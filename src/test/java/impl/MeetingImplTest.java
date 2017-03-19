@@ -44,7 +44,7 @@ public class MeetingImplTest {
             int id = 1;
             Calendar date = Calendar.getInstance();
             Set<Contact> contacts = new HashSet<>();
-            Meeting instance = new MeetingImplMock(id, date, contacts);
+            Meeting meeting = new MeetingImplMock(id, date, contacts);
         } catch (Exception e) {
             fail(e.getMessage());
         }
@@ -56,11 +56,20 @@ public class MeetingImplTest {
             int id = 0;
             Calendar date = Calendar.getInstance();
             Set<Contact> contacts = new HashSet<>();
-            Meeting instance = new MeetingImplMock(id, date, contacts);
+            Meeting meeting = new MeetingImplMock(id, date, contacts);
             fail("Missing exception!");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    @Test
+    public void testGetId() {
+        int id = 0;
+        Calendar date = Calendar.getInstance();
+        Set<Contact> contacts = new HashSet<>();
+        Meeting meeting = new MeetingImplMock(id, date, contacts);
+        assertEquals(1, meeting.getId());
     }
 
     /**
