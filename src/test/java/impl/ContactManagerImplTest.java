@@ -1,5 +1,7 @@
 package impl;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -108,6 +110,26 @@ public class ContactManagerImplTest {
         int[] ids = {1, 3, 5};
         Set<Contact> contacts = manager.getContacts(ids);
         assertTrue(contacts.size() == ids.length);
+    }
+
+    @Test
+    public void testAddFutureMeeting() {
+        ContactManager manager = new ContactManagerImpl();
+        int contactId = manager.addNewContact("Pedro", "Some notes");
+        Set<Contact> contacts = manager.getContacts("Pedro");
+
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DAY_OF_YEAR, 1);
+
+        int id = manager.addFutureMeeting(contacts, date);
+        assertTrue(id > 0);
+
+        Calendar date2 = Calendar.getInstance();
+        date2.add(Calendar.DAY_OF_YEAR, 2);
+
+        int id2 = manager.addFutureMeeting(contacts, date2);
+        assertTrue(id2 > 0);
+        assertTrue(id2 > id);
     }
 
 }
