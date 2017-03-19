@@ -136,7 +136,13 @@ public class ContactManagerImpl implements ContactManager {
      */
     @Override
     public Set<Contact> getContacts(int... ids) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Set<Contact> contacts = new HashSet();
+        for (int i = 0; i < ids.length; i++) {
+            if (this.contacts.keySet().contains(ids[i])) {
+                contacts.add(this.contacts.get(ids[i]));
+            }
+        }
+        return contacts;
     }
 
     /**
