@@ -65,4 +65,17 @@ public class PastMeetingImplTest {
         }
     }
 
+    @Test
+    public void testPastMethodWithIdAndDateAndContactsRaisesExceptionOnEmptyContacts() {
+        try {
+            int id = 1;
+            Calendar date = Calendar.getInstance();
+            Set<Contact> contacts = new HashSet<>();
+            Meeting meeting = new PastMeetingImpl(id, date, contacts);
+            fail("Missing exception!");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
