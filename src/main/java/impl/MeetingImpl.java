@@ -10,7 +10,7 @@ import spec.Meeting;
  *
  * @author Pedro Ferreira <pbf@frameweb.net>
  */
-public class MeetingImpl implements Meeting {
+abstract public class MeetingImpl implements Meeting {
 
     /**
      * {@inheritDoc}
